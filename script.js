@@ -1,99 +1,124 @@
-/* script.js - CORRIGÉ */
+// script.js - TRIX MUSIK V4 (Corrigé)
 
 document.addEventListener("DOMContentLoaded", function() {
+    let currentLang = localStorage.getItem('trix_lang') || 'fr';
+    const pageID = document.body.getAttribute("data-page");
+
+    // 1. Générer le Header
+    genererHeader(pageID, currentLang);
     
-    // --- 1. COMPTEUR ---
-    let pageID = document.body.getAttribute("data-page");
-    if (!pageID) pageID = "autre"; 
-    const namespace = "trixmusik_live_v1"; 
+    // 2. Générer le Footer
+    genererFooter(currentLang);
+    
+    // 3. Traduire les textes statiques
+    traduirePage(pageID, currentLang);
 
-    // On incrémente le compteur via l'API
-    fetch(`https://api.counterapi.dev/v1/${namespace}/${pageID}/up`)
-        .then(response => response.json())
-        .then(data => {
-            verifierEtAfficherGlobal(namespace);
-        })
-        .catch(err => console.log("Compteur silencieux (Erreur réseau ou bloqueur de pub)"));
-
-    // --- 2. GENERATION DES VIDEOS ---
-    const container = document.querySelector(".grid");
-    if (container) {
-        const videos = [
-          { id: "KCxpb2f837g", titre: "HISTOIRE DE L'EURODANCE #7", sous_titre: "Le groove originel", pages: ["accueil", "histoire"] },
-          { id: "MnrdVWSZuxU", titre: "HISTOIRE DE L'EURODANCE #6", sous_titre: "Le groove originel", pages: ["accueil", "histoire"] },
-          { id: "JA1UhFn8KkA", titre: "HISTOIRE DE L'EURODANCE #5", sous_titre: "Le groove originel", pages: ["accueil", "histoire"] },
-          { id: "sA6OknupuHM", titre: "Ultimate guide of HOUSE", sous_titre: "Le groove originel", pages: ["accueil", "genres"] },
-          { id: "1_eU_aHu13Q", titre: "HISTOIRE DE L'EURODANCE #4", sous_titre: "Le groove originel", pages: ["accueil", "histoire"] }, 
-          { id: "JnAFWie69i8", titre: "HISTOIRE DE L'EURODANCE #3", sous_titre: "Le groove originel", pages: ["accueil", "histoire"] }, 
-          { id: "FPNY-cPU7HM", titre: "Ultimate guide of PSYTRANCE", sous_titre: "Le groove originel", pages: ["accueil", "genres"] },
-          { id: "S9tCCe9N4jU", titre: "HISTOIRE DE L'EURODANCE #2", sous_titre: "Le groove originel", pages: ["accueil", "histoire"] },
-          { id: "u-ASIruTZmk", titre: "HISTOIRE DE L'EURODANCE #1", sous_titre: "L'apogée du rythme", pages: ["accueil", "histoire"] },
-          { id: "4UcRVUCjp9k", titre: "Ultimate guide of TRANCE", sous_titre: "Mélodies et émotions", pages: ["accueil", "genres"] },
-          { id: "VHPihNBaso0", titre: "Mini guide of RAP", sous_titre: "On the street", pages: ["accueil", "genres"] }
-        ];
-
-        let contenuFinal = "";
-        videos.forEach(video => {
-            if (video.pages.includes(pageID)) {
-                // CORRECTION ICI : L'URL de l'image était cassée
-                contenuFinal += `
-                    <div class="card">
-                        <h3>${video.titre}</h3>
-                        <p class="subtitle">${video.sous_titre}</p>
-                        <div class="video-wrapper" onclick="chargerVideo(this, '${video.id}')">
-                            <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.titre}" class="thumbnail">
-                            <div class="play-button"></div>
-                        </div>
-                    </div>
-                `;
-            }
-        });
-        container.innerHTML = contenuFinal;
+    // 4. Générer les Vidéos
+    const gridContainer = document.querySelector(".grid");
+    if (gridContainer && typeof VIDEOS_DATA !== 'undefined') {
+        renderVideos(pageID, currentLang);
     }
+    
+    // 5. Compteur
+    const namespace = "trixmusik_live_v4"; 
+    fetch(`https://api.counterapi.dev/v1/${namespace}/${pageID || 'autre'}/up`).catch(e => {});
 });
 
-// --- FONCTIONS ---
+function genererHeader(activePage, lang) {
+    const header = document.querySelector("header");
+    if (!header) return;
+    const t = TRADUCTIONS[lang] || TRADUCTIONS['fr']; 
+    
+    let flag = "🇫🇷";
+    if(lang === 'en') flag = "🇬🇧";
+    if(lang === 'es') flag = "🇪🇸";
+    if(lang === 'it') flag = "🇮🇹";
+    if(lang === 'de') flag = "🇩🇪";
 
-function chargerVideo(wrapper, videoId) {
-    // CORRECTION ICI : L'URL src manquait dans l'iframe
-    wrapper.innerHTML = `
-        <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
-        title="Lecteur vidéo" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>
+    header.innerHTML = `
+        <nav>
+            <ul>
+                <li><a href="index.html" class="${activePage === 'accueil' ? 'active' : ''}">${t.nav_home}</a></li>
+                <li><a href="histoire.html" class="${activePage === 'histoire' ? 'active' : ''}">${t.nav_hist}</a></li>
+                <li><a href="genres.html" class="${activePage === 'genres' ? 'active' : ''}">${t.nav_genre}</a></li>
+                <li><a href="mao.html" class="${activePage === 'mao' ? 'active' : ''}">${t.nav_mao}</a></li>
+                <li><a href="contact.html" class="${activePage === 'contact' ? 'active' : ''}">${t.nav_contact}</a></li>
+                <li><button class="lang-btn" onclick="cycleLang()" title="Changer de langue">${flag}</button></li>
+            </ul>
+        </nav>
     `;
 }
 
-function verifierEtAfficherGlobal(namespace) {
-    // Vérifie si "?admin=trix" est dans l'URL
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    if (urlParams.has('admin') && urlParams.get('admin') === 'trix') {
-        const boite = document.getElementById('compteur-secret');
-        if (!boite) return;
-        
-        boite.style.display = "block";
-        boite.innerHTML = "Chargement des données...";
-        
-        const pagesList = ["accueil", "histoire", "genres", "contact"];
-        
-        // Récupère les stats de toutes les pages
-        const requetes = pagesList.map(page => 
-            fetch(`https://api.counterapi.dev/v1/${namespace}/${page}`)
-                .then(res => res.json())
-                .then(data => ({ page: page, count: data.count }))
-                .catch(() => ({ page: page, count: 0 }))
-        );
+function genererFooter(lang) {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    const t = TRADUCTIONS[lang] || TRADUCTIONS['fr'];
+    footer.innerHTML = `
+        <div class="donation-section">
+            <h3>${t.footer_title}</h3>
+            <a href="#" class="btn-donate btn-paypal" target="_blank">${t.btn_donate_paypal}</a>
+            <a href="#" class="btn-donate btn-tipeee" target="_blank">${t.btn_donate_tipeee}</a>
+        </div>
+        <p style="opacity:0.6; font-size:0.8rem; margin-top:20px;">${t.rights}</p>
+    `;
+}
 
-        Promise.all(requetes).then(resultats => {
-            let totalGlobal = 0;
-            let html = `<div style="text-align:left;"><strong>ADMIN DASHBOARD</strong><hr style="border-color:#00ff00;">`;
-            resultats.forEach(item => {
-                html += `${item.page.toUpperCase()} : <strong>${item.count}</strong><br>`;
-                totalGlobal += item.count;
-            });
-            html += `<hr style="border-color:#00ff00;">TOTAL SITE : <strong>${totalGlobal}</strong></div>`;
-            boite.innerHTML = html;
-        });
+function traduirePage(pageID, lang) {
+    const t = TRADUCTIONS[lang] || TRADUCTIONS['fr'];
+    
+    const heroP = document.querySelector(".hero p");
+    if(heroP) heroP.innerText = t.hero_slogan;
+
+    const title = document.querySelector(".section-header h2");
+    const sub = document.querySelector(".section-header p");
+    
+    if(title && sub) {
+        if(pageID === 'histoire') { title.innerText = t.hist_title; sub.innerText = t.hist_sub; }
+        if(pageID === 'genres') { title.innerText = t.genre_title; sub.innerText = t.genre_sub; }
+        if(pageID === 'mao') { title.innerText = t.mao_title; sub.innerText = t.mao_sub; }
+        if(pageID === 'contact') { title.innerText = t.contact_title; sub.innerText = t.contact_sub; }
     }
+}
+
+function renderVideos(category, lang) {
+    const container = document.querySelector(".grid");
+    const videos = VIDEOS_DATA.filter(v => v.category === category);
+    
+    if(videos.length === 0) {
+        container.innerHTML = "<p style='text-align:center; width:100%; opacity:0.6; padding:20px;'>Aucune vidéo disponible.</p>";
+        return;
+    }
+
+    let html = "";
+    videos.forEach(v => {
+        let titre = (lang === 'fr') ? v.titre_fr : v.titre_en;
+        let sub = (lang === 'fr') ? v.sous_titre_fr : v.sous_titre_en;
+        if(!titre) titre = v.titre_fr;
+        if(!sub) sub = v.sous_titre_fr;
+
+        // C'EST ICI QUE C'ETAIT CASSÉ. VOICI LA VERSION CORRIGÉE :
+        html += `
+            <div class="card">
+                <h3>${titre}</h3>
+                <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">${sub}</p>
+                <div class="video-wrapper" onclick="this.innerHTML='<iframe src=\\'https://www.youtube.com/embed/${v.id}?autoplay=1\\' frameborder=\\'0\\' allowfullscreen></iframe>'">
+                    <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="video thumbnail">
+                    <div class="play-button"></div>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+function cycleLang() {
+    let current = localStorage.getItem('trix_lang') || 'fr';
+    let next = 'fr';
+    if(current === 'fr') next = 'en';
+    else if(current === 'en') next = 'es';
+    else if(current === 'es') next = 'it';
+    else if(current === 'it') next = 'de';
+    else if(current === 'de') next = 'fr';
+    localStorage.setItem('trix_lang', next);
+    location.reload();
 }

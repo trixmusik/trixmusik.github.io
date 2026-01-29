@@ -3,25 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - TRIX MUSIK</title>
+    <title>TRIX MUSIK - Accueil</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="preconnect" href="https://www.google.com">
-    <link rel="preconnect" href="https://img.youtube.com">
 </head>
-
 <body data-page="accueil">
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="histoire.html">Histoire</a></li>
-                <li><a href="genres.html">genres</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header></header> <!-- Rempli par script.js -->
 
     <section class="hero">
         <img src="logo.png" alt="TRIX MUSIK" class="logo">
@@ -29,29 +16,55 @@
     </section>
 
     <main class="container">
-        <div class="section-header">
-            <h2>Vidéos à la une</h2>
-            <p>Retrouvez le meilleur de l'histoire et des genres électroniques.</p>
+        
+        <div class="hub-intro">
+            <h1>Bienvenue sur Trix Musik</h1>
+            <p>Une plateforme unique pour explorer l'univers de la musique électronique.</p>
         </div>
 
-        <div class="grid"></div>
+        <div class="hub-grid">
+            <!-- CARTE 1 : HISTOIRE (Nom changé) -->
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=800" class="feature-img" alt="Histoire">
+                <div class="feature-content">
+                    <div>
+                        <h3>Histoire des genres</h3>
+                        <p>Plongez dans les origines de l'Eurodance.</p>
+                    </div>
+                    <a href="histoire.html" class="btn-feature">Explorer</a>
+                </div>
+            </div>
+
+            <!-- CARTE 2 : GENRES (Nom changé) -->
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800" class="feature-img" alt="Genres">
+                <div class="feature-content">
+                    <div>
+                        <h3>Guide des genres</h3>
+                        <p>Styles, Sous-genres et cultures.</p>
+                    </div>
+                    <a href="genres.html" class="btn-feature">Comprendre</a>
+                </div>
+            </div>
+
+            <!-- CARTE 3 : MAO -->
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800" class="feature-img" alt="MAO">
+                <div class="feature-content">
+                    <div>
+                        <h3>Trix M.A.O.</h3>
+                        <p>Tutoriels et outils de production.</p>
+                    </div>
+                    <a href="mao.html" class="btn-feature">Produire</a>
+                </div>
+            </div>
+        </div>
+        
     </main>
 
-    <footer>
-        <div class="donation-section">
-            <h3>Soutenir le projet</h3>
-            <a href="#" class="btn-donate btn-paypal" target="_blank">Faire un don PayPal</a>
-            <a href="#" class="btn-donate btn-tipeee" target="_blank">Me soutenir sur Tipeee</a>
-        </div>
+    <footer></footer> <!-- Rempli par script.js -->
 
-        <p style="margin-top: 20px; opacity: 0.6; font-size: 0.8rem;">
-            &copy; 2026 - TRIX MUSIK
-        </p>
-    </footer>
-
-    <!-- BOITE SECRÈTE POUR LE COMPTEUR -->
-    <div id="compteur-secret" style="display: none;"></div>
-
+    <script src="database.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -3,82 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - TRIX MUSIK</title>
+    <title>TRIX MUSIK - Contact</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<!-- J'ai ajouté data-page="contact" pour que le compteur sache où on est -->
 <body data-page="contact">
-
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="histoire.html">Histoire</a></li>
-                <li><a href="genres.html">genres</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <header></header>
     <section class="hero">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="logo.png" alt="TRIX MUSIK" class="logo">
         <p>Le site dédié à la musique</p>
     </section>
-
     <main class="container">
+        
         <div class="section-header">
-            <h2>Contactez-nous</h2>
-            <p>Une question sur une vidéo ? Une suggestion ? Envoyez-nous un message.</p>
+            <h2>Contact</h2>
+            <p>...</p>
         </div>
-
-        <form id="monFormulaire" action="" method="POST">
-            <input type="hidden" name="_next" value="http://monsite.com/merci.html">
-            <input type="hidden" name="_subject" value="Nouveau message TRIX MUSIK !">
-
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-
-            <label for="sujet">Sujet :</label>
-            <input type="text" id="sujet" name="sujet" placeholder="Sujet de votre message" required>
-
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea>
-
+        <form action="https://formsubmit.co/ton-email@gmail.com" method="POST">
+            <input type="text" name="name" placeholder="Nom" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
             <button type="submit">Envoyer</button>
         </form>
-
+        
     </main>
-
-   <footer>
-        <div class="donation-section">
-            <h3>Soutenir le projet</h3>
-            <a href="#" class="btn-donate btn-paypal" target="_blank">Faire un don PayPal</a>
-            <a href="#" class="btn-donate btn-tipeee" target="_blank">Me soutenir sur Tipeee</a>
-        </div>
-
-        <p style="margin-top: 20px; opacity: 0.6; font-size: 0.8rem;">
-            &copy; 2026 - TRIX MUSIK
-        </p>
-    </footer>
-
-    <!-- BOITE SECRÈTE POUR LE COMPTEUR -->
-    <div id="compteur-secret" style="display: none;"></div>
-
-    <script src="config.js"></script>
-    <script src="script.js"></script> <!-- J'ai ajouté le script.js ici aussi pour le compteur -->
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (typeof ADRESSE_MESSAGERIE !== 'undefined') {
-                const formulaire = document.getElementById('monFormulaire');
-                if(formulaire) formulaire.action = ADRESSE_MESSAGERIE;
-            }
-        });
-    </script>
-
+    <footer></footer>
+    <script src="database.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
