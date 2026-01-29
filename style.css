@@ -1,4 +1,4 @@
-/* style.css - TRIX MUSIK V4 (Original + Fond PNG) */
+/* style.css - TRIX MUSIK V4.5 */
 
 * { box-sizing: border-box; }
 
@@ -13,9 +13,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
-    /* LE FOND EST ICI */
+    /* FOND D'ÉCRAN */
     background-color: var(--bg-color);
-    background-image: url('background.png'); /* Assure-toi d'avoir l'image */
+    background-image: url('background.png'); /* Assure-toi que le fichier est là */
     background-repeat: repeat;
     background-attachment: fixed;
     
@@ -23,17 +23,14 @@ body {
     margin: 0; padding: 0;
     line-height: 1.6;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column;
 }
 
 header {
-    background: var(--dark-section);
-    backdrop-filter: blur(10px);
+    background: var(--dark-section); backdrop-filter: blur(10px);
     position: sticky; top: 0; z-index: 100;
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    padding: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4); padding: 0;
 }
 
 nav ul {
@@ -43,27 +40,23 @@ nav ul {
 }
 
 nav a {
-    color: var(--white); text-decoration: none;
-    font-weight: 600; text-transform: uppercase;
-    font-size: 0.9rem; letter-spacing: 1px; transition: 0.3s;
+    color: var(--white); text-decoration: none; font-weight: 600;
+    text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; transition: 0.3s;
 }
-
 nav a:hover, nav a.active {
-    color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(2, 166, 207, 0.6);
+    color: var(--primary-color); text-shadow: 0 0 10px rgba(2, 166, 207, 0.6);
 }
 
 .lang-btn {
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
-    color: white; padding: 3px 8px; cursor: pointer;
-    border-radius: 4px; font-size: 1.2rem; transition: 0.3s; line-height: 1;
+    color: white; padding: 3px 8px; cursor: pointer; border-radius: 4px;
+    font-size: 1.2rem; transition: 0.3s; line-height: 1;
 }
 .lang-btn:hover { background: var(--primary-color); border-color: var(--primary-color); }
 
 .hero {
     background: var(--dark-section); color: var(--white);
-    text-align: center; padding: 0.5rem 0;
-    border-bottom: 2px solid var(--primary-color); 
+    text-align: center; padding: 0.5rem 0; border-bottom: 2px solid var(--primary-color); 
 }
 .hero img.logo {
     width: 95%; max-width: 600px; height: auto;
@@ -74,10 +67,8 @@ nav a:hover, nav a.active {
     font-weight: bold; letter-spacing: 1px; margin: 0; padding-bottom: 5px;
 }
 
-/* CONTAINER CLASSIQUE (1400px) */
 .container {
-    max-width: 1400px;
-    margin: 0 auto; padding: 2rem;
+    max-width: 1400px; margin: 0 auto; padding: 2rem;
     flex: 1; width: 100%;
 }
 
@@ -88,18 +79,21 @@ nav a:hover, nav a.active {
 }
 .section-header h2 { margin: 0 0 5px 0; color: #333; }
 
+/* --- GRID VIDEOS (HISTOIRE & GENRES) --- */
+/* C'est ici qu'on agrandit les cartes vidéos */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
+    /* On passe à 500px min pour que les cartes soient TRÈS larges */
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 40px; /* Espace augmenté entre les cartes */
 }
 .card {
-    background: var(--white); padding: 1rem; border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    background: var(--white); padding: 1.5rem; /* Padding un peu plus grand */
+    border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: 0.3s; border: 1px solid #ddd;
 }
 .card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
-.card h3 { color: var(--primary-color); margin: 0 0 5px 0; font-size: 1.1rem; }
+.card h3 { color: var(--primary-color); margin: 0 0 10px 0; font-size: 1.3rem; }
 
 .video-wrapper {
     position: relative; padding-bottom: 56.25%; height: 0;
@@ -111,22 +105,25 @@ nav a:hover, nav a.active {
 }
 .play-button {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 50px; height: 50px; background: rgba(255,0,0,0.8); border-radius: 50%;
+    width: 60px; height: 60px; background: rgba(255,0,0,0.8); border-radius: 50%;
 }
 .play-button::after {
     content: ''; display: block; width: 0; height: 0;
-    border-style: solid; border-width: 8px 0 8px 16px;
+    border-style: solid; border-width: 10px 0 10px 20px;
     border-color: transparent transparent transparent white;
     position: absolute; top: 50%; left: 55%; transform: translate(-50%, -50%);
 }
 
-.hub-intro {
-    text-align: center; margin-bottom: 3rem; background: white;
-    padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
+/* --- ACCUEIL (HUB) --- */
+/* Suppression de .hub-intro car tu ne veux plus le cadre de bienvenue */
+.hub-intro { display: none; } 
+
 .hub-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: grid; 
+    /* Cartes d'accueil un peu plus larges aussi */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
+    margin-top: 20px;
 }
 .feature-card {
     background: white; border-radius: 12px; overflow: hidden;
@@ -135,20 +132,21 @@ nav a:hover, nav a.active {
 }
 .feature-card:hover { transform: translateY(-10px); }
 .feature-img {
-    width: 100%; height: 200px; object-fit: cover;
+    width: 100%; height: 220px; object-fit: cover;
     border-bottom: 5px solid var(--primary-color);
 }
 .feature-content {
     padding: 2rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;
 }
-.feature-card h3 { color: var(--primary-color); margin-bottom: 10px; }
+.feature-card h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.4rem; }
 
 .btn-feature {
-    background: var(--text-color); color: white; padding: 10px 25px;
+    background: var(--text-color); color: white; padding: 12px 30px;
     border-radius: 50px; text-decoration: none; margin-top: 15px; display: inline-block;
 }
 .btn-feature:hover { background: var(--primary-color); }
 
+/* --- FOOTER & CONTACT --- */
 body[data-page="contact"] .section-header {
     display: block; max-width: 800px; margin: 0 auto 2rem auto;
     border-left: 5px solid var(--primary-color); border-radius: 8px;
@@ -184,6 +182,7 @@ footer {
 
 @media (max-width: 768px) {
     .container { padding: 10px; }
-    .grid { grid-template-columns: 1fr; }
+    /* Sur mobile, on revient à 1 colonne */
+    .grid, .hub-grid { grid-template-columns: 1fr; } 
     nav ul { gap: 10px; }
 }

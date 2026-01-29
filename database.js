@@ -1,8 +1,8 @@
-// database.js - TRIX MUSIK V4
+// database.js - TRIX MUSIK V4.5
 
 const TRADUCTIONS = {
     fr: {
-        nav_home: "Accueil", nav_hist: "Histoire", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_contact: "Contact",
+        nav_home: "Accueil", nav_hist: "Histoire", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contact",
         hero_slogan: "Le site dédié à la musique", footer_title: "Soutenir le projet",
         btn_donate_paypal: "Faire un don PayPal", btn_donate_tipeee: "Me soutenir sur Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "L'Histoire des genres musicaux", hist_sub: "Découvrez l'histoire des genres",
@@ -11,7 +11,7 @@ const TRADUCTIONS = {
         contact_title: "Contactez-nous", contact_sub: "Envoyez-nous un message."
     },
     en: {
-        nav_home: "Home", nav_hist: "History", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_contact: "Contact",
+        nav_home: "Home", nav_hist: "History", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contact",
         hero_slogan: "The website dedicated to music", footer_title: "Support the project",
         btn_donate_paypal: "Donate via PayPal", btn_donate_tipeee: "Support on Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "History of Musical Genres", hist_sub: "Discover the history of genres",
@@ -20,7 +20,7 @@ const TRADUCTIONS = {
         contact_title: "Contact Us", contact_sub: "Send us a message."
     },
     es: {
-        nav_home: "Inicio", nav_hist: "Historia", nav_genre: "Géneros", nav_mao: "Trix M.A.O.", nav_contact: "Contacto",
+        nav_home: "Inicio", nav_hist: "Historia", nav_genre: "Géneros", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contacto",
         hero_slogan: "El sitio dedicado a la música", footer_title: "Apoyar el proyecto",
         btn_donate_paypal: "Donar con PayPal", btn_donate_tipeee: "Apoyar en Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "Historia de los géneros musicales", hist_sub: "Descubre la historia de los géneros",
@@ -29,7 +29,7 @@ const TRADUCTIONS = {
         contact_title: "Contáctenos", contact_sub: "Envíenos un mensaje."
     },
     it: {
-        nav_home: "Home", nav_hist: "Storia", nav_genre: "Generi", nav_mao: "Trix M.A.O.", nav_contact: "Contatto",
+        nav_home: "Home", nav_hist: "Storia", nav_genre: "Generi", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contatto",
         hero_slogan: "Il sito dedicato alla musica", footer_title: "Sostieni il progetto",
         btn_donate_paypal: "Fai una donazione", btn_donate_tipeee: "Sostienimi su Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "Storia dei generi musicali", hist_sub: "Scopri la storia dei generi",
@@ -38,7 +38,7 @@ const TRADUCTIONS = {
         contact_title: "Contattaci", contact_sub: "Inviaci un messaggio."
     },
     de: {
-        nav_home: "Startseite", nav_hist: "Geschichte", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_contact: "Kontakt",
+        nav_home: "Startseite", nav_hist: "Geschichte", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Kontakt",
         hero_slogan: "Die Website für Musik", footer_title: "Projekt unterstützen",
         btn_donate_paypal: "Spenden mit PayPal", btn_donate_tipeee: "Unterstütze mich auf Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "Geschichte der Musikgenres", hist_sub: "Entdecken Sie die Geschichte der Genres",

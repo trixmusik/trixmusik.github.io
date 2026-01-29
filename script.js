@@ -1,4 +1,4 @@
-// script.js - TRIX MUSIK V4 (Corrigé)
+// script.js - TRIX MUSIK V4.5
 
 document.addEventListener("DOMContentLoaded", function() {
     let currentLang = localStorage.getItem('trix_lang') || 'fr';
@@ -42,6 +42,10 @@ function genererHeader(activePage, lang) {
                 <li><a href="histoire.html" class="${activePage === 'histoire' ? 'active' : ''}">${t.nav_hist}</a></li>
                 <li><a href="genres.html" class="${activePage === 'genres' ? 'active' : ''}">${t.nav_genre}</a></li>
                 <li><a href="mao.html" class="${activePage === 'mao' ? 'active' : ''}">${t.nav_mao}</a></li>
+                
+                <!-- BOUTON QUANTUM AJOUTÉ ICI -->
+                <li><a href="quantum.html" class="${activePage === 'quantum' ? 'active' : ''}" style="color:#02a6cf;">${t.nav_quantum}</a></li>
+                
                 <li><a href="contact.html" class="${activePage === 'contact' ? 'active' : ''}">${t.nav_contact}</a></li>
                 <li><button class="lang-btn" onclick="cycleLang()" title="Changer de langue">${flag}</button></li>
             </ul>
@@ -96,7 +100,6 @@ function renderVideos(category, lang) {
         if(!titre) titre = v.titre_fr;
         if(!sub) sub = v.sous_titre_fr;
 
-        // C'EST ICI QUE C'ETAIT CASSÉ. VOICI LA VERSION CORRIGÉE :
         html += `
             <div class="card">
                 <h3>${titre}</h3>
