@@ -1,22 +1,23 @@
-// database.js - TRIX MUSIK V5 (Nouvelle Structure)
+// database.js - TRIX MUSIK V5
 
 const TRADUCTIONS = {
     fr: {
         nav_home: "Accueil", 
-        nav_musik: "Trix Musik", // Nouveau bouton menu
+        nav_musik: "Trix Musik",
         nav_mao: "Trix M.A.O.", 
         nav_quantum: "Trix Quantum", 
         nav_contact: "Contact",
         
-        hero_slogan: "L'univers Trix", // Slogan global
+        hero_slogan: "L'univers Trix",
         footer_title: "Soutenir le projet",
-        btn_donate_paypal: "Faire un don PayPal", btn_donate_tipeee: "Me soutenir sur Tipeee", rights: "© 2026 - TRIX MUSIK",
+        btn_donate_paypal: "Faire un don PayPal", 
+        btn_donate_tipeee: "Me soutenir sur Tipeee", 
+        rights: "© 2026 - TRIX MUSIK",
         
-        // Titres des pages
         hist_title: "L'Histoire des genres musicaux", hist_sub: "Découvrez l'histoire des genres",
         genre_title: "Guides des genres musicaux", genre_sub: "Un petit voyage à travers les différents genres",
         mao_title: "Trix M.A.O.", mao_sub: "Tutoriels et Production.",
-        musik_title: "Trix Musik", musik_sub: "Culture et Histoire musicale.", // Titre pour la nouvelle page
+        musik_title: "Trix Musik", musik_sub: "Culture et Histoire musicale.",
         contact_title: "Contactez-nous", contact_sub: "Envoyez-nous un message."
     },
     en: {

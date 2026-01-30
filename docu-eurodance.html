@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIX MUSIK - Saga Eurodance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="docu-eurodance">
+    <header></header>
+    <section class="hero">
+        <img src="logo.png" alt="TRIX MUSIK" class="logo">
+        <p>Le site dédié à la musique</p>
+    </section>
+
+    <main class="container">
+        
+        <!-- HEADER DE L'ARTICLE -->
+        <div class="section-header">
+            <h2>La Saga Eurodance</h2>
+            <p>L'histoire d'un phénomène des années 90.</p>
+            <a href="histoire.html" style="color:var(--primary-color); text-decoration:none;">&larr; Retour aux histoires</a>
+        </div>
+
+        <div class="docu-layout">
+            
+            <!-- COLONNE CONTENU (Gauche) -->
+            <div class="docu-content">
+                
+                <!-- Intro -->
+                <p style="font-size:1.2rem; font-weight:bold; color:#555;">
+                    1993. L'Europe entière danse sur le même rythme. Des synthétiseurs puissants, des voix féminines planantes et des rappeurs énergiques. Bienvenue dans l'ère de l'Eurodance.
+                </p>
+                <br>
+
+                <h3>Les Origines (1989-1991)</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">1989 - La Belgique</div>
+                    <div class="timeline-content">
+                        <p>Tout commence avec le New Beat et la House. Le groupe Technotronic sort "Pump Up The Jam". C'est le premier séisme.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">1990 - Snap!</div>
+                    <div class="timeline-content">
+                        <p>En Allemagne, Snap! sort "The Power". La formule magique est trouvée : Un rappeur + une chanteuse + un gros beat.</p>
+                    </div>
+                </div>
+
+                <!-- Vidéo intégrée au texte (L'épisode 1) -->
+                <div style="margin: 30px 0;">
+                    <h4 style="color:#02a6cf;">Voir l'épisode 1 : Les Origines</h4>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/watch?v=7kmEEkECFQw&list=RD7kmEEkECFQw&start_radio=1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <h3>L'Age d'Or (1993-1996)</h3>
+                <p>C'est l'explosion. Culture Beat, 2 Unlimited, Haddaway... L'Eurodance domine les charts mondiaux. Les clubs sont pleins, les radios ne passent que ça.</p>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">1993 - No Limit</div>
+                    <div class="timeline-content">
+                        <p>2 Unlimited repousse les limites de la BPM. La musique devient plus rapide, plus agressive, mais toujours mélodique.</p>
+                    </div>
+                </div>
+
+                <p>Mais comme toute mode intense, elle s'essouffle. Vers 1997, les sons changent. La House filtrée (Daft Punk) et la Trance commencent à prendre le relais.</p>
+
+                <!-- SECTION ARCHIVES (Générée auto par JS via data-page="docu-eurodance") -->
+                <div class="archives-section" id="archives">
+                    <h3>Tous les épisodes</h3>
+                    <p>Retrouvez l'intégralité de la série documentaire ci-dessous.</p>
+                    <div class="grid"></div> <!-- JS va remplir ça avec les vidéos 'histoire' -->
+                </div>
+
+            </div>
+
+            <!-- SIDEBAR (Droite) -->
+            <aside class="docu-sidebar">
+                <h3>Sommaire</h3>
+                <ul>
+                    <li><a href="docu-eurodance.html">Introduction</a></li>
+                    <li><a href="docu-eurodance.html">1. Les Origines</a></li>
+                    <li><a href="docu-eurodance.html">2. L'Age d'Or</a></li>
+                    <li><a href="docu-eurodance.html">3. Le Déclin</a></li>
+                    <li><a href="#archives"><strong>Voir les 7 Vidéos</strong></a></li>
+                </ul>
+                
+                <div style="margin-top:30px;">
+                    <h3>Artistes Clés</h3>
+                    <ul style="font-size:0.9rem; color:#ccc;">
+                        <li>2 Unlimited</li>
+                        <li>Culture Beat</li>
+                        <li>Snap!</li>
+                        <li>Masterboy</li>
+                        <li>E-Type</li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+        
+    </main>
+    <footer></footer>
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
