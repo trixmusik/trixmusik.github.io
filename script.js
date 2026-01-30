@@ -1,4 +1,4 @@
-// script.js - TRIX MUSIK V4.5
+// script.js - TRIX MUSIK V5 (Menu mis à jour)
 
 document.addEventListener("DOMContentLoaded", function() {
     let currentLang = localStorage.getItem('trix_lang') || 'fr';
@@ -39,13 +39,11 @@ function genererHeader(activePage, lang) {
         <nav>
             <ul>
                 <li><a href="index.html" class="${activePage === 'accueil' ? 'active' : ''}">${t.nav_home}</a></li>
-                <li><a href="histoire.html" class="${activePage === 'histoire' ? 'active' : ''}">${t.nav_hist}</a></li>
-                <li><a href="genres.html" class="${activePage === 'genres' ? 'active' : ''}">${t.nav_genre}</a></li>
+                <!-- NOUVEAU BOUTON : TRIX MUSIK -->
+                <li><a href="trix-musik.html" class="${activePage === 'trix-musik' ? 'active' : ''}" style="color:#02a6cf;">${t.nav_musik}</a></li>
+                
                 <li><a href="mao.html" class="${activePage === 'mao' ? 'active' : ''}">${t.nav_mao}</a></li>
-                
-                <!-- BOUTON QUANTUM AJOUTÉ ICI -->
-                <li><a href="quantum.html" class="${activePage === 'quantum' ? 'active' : ''}" style="color:#02a6cf;">${t.nav_quantum}</a></li>
-                
+                <li><a href="quantum.html" class="${activePage === 'quantum' ? 'active' : ''}">${t.nav_quantum}</a></li>
                 <li><a href="contact.html" class="${activePage === 'contact' ? 'active' : ''}">${t.nav_contact}</a></li>
                 <li><button class="lang-btn" onclick="cycleLang()" title="Changer de langue">${flag}</button></li>
             </ul>
@@ -80,6 +78,7 @@ function traduirePage(pageID, lang) {
         if(pageID === 'histoire') { title.innerText = t.hist_title; sub.innerText = t.hist_sub; }
         if(pageID === 'genres') { title.innerText = t.genre_title; sub.innerText = t.genre_sub; }
         if(pageID === 'mao') { title.innerText = t.mao_title; sub.innerText = t.mao_sub; }
+        if(pageID === 'trix-musik') { title.innerText = t.musik_title; sub.innerText = t.musik_sub; } // Traduction nouvelle page
         if(pageID === 'contact') { title.innerText = t.contact_title; sub.innerText = t.contact_sub; }
     }
 }

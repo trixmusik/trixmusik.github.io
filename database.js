@@ -1,49 +1,62 @@
-// database.js - TRIX MUSIK V4.5
+// database.js - TRIX MUSIK V5 (Nouvelle Structure)
 
 const TRADUCTIONS = {
     fr: {
-        nav_home: "Accueil", nav_hist: "Histoire", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contact",
-        hero_slogan: "Le site dédié à la musique", footer_title: "Soutenir le projet",
+        nav_home: "Accueil", 
+        nav_musik: "Trix Musik", // Nouveau bouton menu
+        nav_mao: "Trix M.A.O.", 
+        nav_quantum: "Trix Quantum", 
+        nav_contact: "Contact",
+        
+        hero_slogan: "L'univers Trix", // Slogan global
+        footer_title: "Soutenir le projet",
         btn_donate_paypal: "Faire un don PayPal", btn_donate_tipeee: "Me soutenir sur Tipeee", rights: "© 2026 - TRIX MUSIK",
+        
+        // Titres des pages
         hist_title: "L'Histoire des genres musicaux", hist_sub: "Découvrez l'histoire des genres",
         genre_title: "Guides des genres musicaux", genre_sub: "Un petit voyage à travers les différents genres",
         mao_title: "Trix M.A.O.", mao_sub: "Tutoriels et Production.",
+        musik_title: "Trix Musik", musik_sub: "Culture et Histoire musicale.", // Titre pour la nouvelle page
         contact_title: "Contactez-nous", contact_sub: "Envoyez-nous un message."
     },
     en: {
-        nav_home: "Home", nav_hist: "History", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contact",
-        hero_slogan: "The website dedicated to music", footer_title: "Support the project",
+        nav_home: "Home", nav_musik: "Trix Musik", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contact",
+        hero_slogan: "The Trix Universe", footer_title: "Support the project",
         btn_donate_paypal: "Donate via PayPal", btn_donate_tipeee: "Support on Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "History of Musical Genres", hist_sub: "Discover the history of genres",
         genre_title: "Musical Genre Guides", genre_sub: "A small journey through different genres",
         mao_title: "Trix M.A.O.", mao_sub: "Tutorials and Production.",
+        musik_title: "Trix Musik", musik_sub: "Music Culture and History.",
         contact_title: "Contact Us", contact_sub: "Send us a message."
     },
     es: {
-        nav_home: "Inicio", nav_hist: "Historia", nav_genre: "Géneros", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contacto",
-        hero_slogan: "El sitio dedicado a la música", footer_title: "Apoyar el proyecto",
+        nav_home: "Inicio", nav_musik: "Trix Musik", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contacto",
+        hero_slogan: "El Universo Trix", footer_title: "Apoyar el proyecto",
         btn_donate_paypal: "Donar con PayPal", btn_donate_tipeee: "Apoyar en Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "Historia de los géneros musicales", hist_sub: "Descubre la historia de los géneros",
         genre_title: "Guías de géneros musicales", genre_sub: "Un pequeño viaje a través de los diferentes géneros",
         mao_title: "Trix M.A.O.", mao_sub: "Tutoriales y Producción.",
+        musik_title: "Trix Musik", musik_sub: "Cultura e Historia musical.",
         contact_title: "Contáctenos", contact_sub: "Envíenos un mensaje."
     },
     it: {
-        nav_home: "Home", nav_hist: "Storia", nav_genre: "Generi", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contatto",
-        hero_slogan: "Il sito dedicato alla musica", footer_title: "Sostieni il progetto",
+        nav_home: "Home", nav_musik: "Trix Musik", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Contatto",
+        hero_slogan: "L'Universo Trix", footer_title: "Sostieni il progetto",
         btn_donate_paypal: "Fai una donazione", btn_donate_tipeee: "Sostienimi su Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "Storia dei generi musicali", hist_sub: "Scopri la storia dei generi",
         genre_title: "Guide ai generi musicali", genre_sub: "Un piccolo viaggio attraverso i diversi generi",
         mao_title: "Trix M.A.O.", mao_sub: "Tutorial e Produzione.",
+        musik_title: "Trix Musik", musik_sub: "Cultura e Storia musicale.",
         contact_title: "Contattaci", contact_sub: "Inviaci un messaggio."
     },
     de: {
-        nav_home: "Startseite", nav_hist: "Geschichte", nav_genre: "Genres", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Kontakt",
-        hero_slogan: "Die Website für Musik", footer_title: "Projekt unterstützen",
+        nav_home: "Startseite", nav_musik: "Trix Musik", nav_mao: "Trix M.A.O.", nav_quantum: "Trix Quantum", nav_contact: "Kontakt",
+        hero_slogan: "Das Trix Universum", footer_title: "Projekt unterstützen",
         btn_donate_paypal: "Spenden mit PayPal", btn_donate_tipeee: "Unterstütze mich auf Tipeee", rights: "© 2026 - TRIX MUSIK",
         hist_title: "Geschichte der Musikgenres", hist_sub: "Entdecken Sie die Geschichte der Genres",
         genre_title: "Musikgenre-Guides", genre_sub: "Eine kleine Reise durch verschiedene Genres",
         mao_title: "Trix M.A.O.", mao_sub: "Tutorials und Produktion.",
+        musik_title: "Trix Musik", musik_sub: "Musikkultur und Geschichte.",
         contact_title: "Kontaktieren Sie uns", contact_sub: "Senden Sie uns eine Nachricht."
     }
 };
